@@ -17,19 +17,28 @@
 
 /* Global variables */
 var img1; // (Image file)
+var mousePathList = []; // the array showing all lines (Point array)
 
 /* p5 functions */
 function setup(){
   createCanvas(500, 500);
-  img1 = loadImage("20210909.PNG");
+  img1 = loadImage("20210909.jpg");
   console.log(typeof img1);
-
 }
 
 function draw(){
-  image(img1, 0, 0, 500, 500);
-  if (mouseIsPressed === true)
+    background(255);
+    image(img1, 0, 0, 500, 500);
+    if (mouseIsPressed)
     {
-      line(mouseX, mouseY, pmouseX, pmouseY);
+      mousePathList.push(new Point(mouseX, mouseY));
+    }else{
+      mousePathList = [];
+      line(0, mouseY, 500, mouseY);
+      line(mouseX, 0, mouseX, 500);
+    }
+    var i;
+    for(i=1; i<mousePathList.length; i++){
+      line(mousePathList[i].x, mousePathList[i].y, mousePathList[i-1].x, mousePathList[i-1].y);
     }
 }

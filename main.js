@@ -22,12 +22,11 @@ var mousePathList = []; // the array showing all lines (Point array)
 /* p5 functions */
 function setup(){
   createCanvas(500, 500);
-  img1 = loadImage("20210909.jpg");
+  img1 = loadImage("https://celine10811020.github.io/Stock/Stock/20210901.PNG");
   console.log(typeof img1);
 }
 
 function draw(){
-    background(255);
     image(img1, 0, 0, 500, 500);
     if (mouseIsPressed)
     {

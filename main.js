@@ -20,12 +20,14 @@ var img1; // (Image file)
 
 /* p5 functions */
 function setup(){
+  createCanvas(500, 500);
   img1 = loadImage("20210909.PNG");
-  console.log(typeof img1)
-  image(0, 0, 500, 500)
+  console.log(typeof img1);
+
 }
 
 function draw(){
+  image(img1, 0, 0, 500, 500);
   if (mouseIsPressed === true)
     {
       line(mouseX, mouseY, pmouseX, pmouseY);
